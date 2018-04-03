@@ -12,7 +12,13 @@ public class MainActivity extends AppCompatActivity {
 
     int scorePlayerOne = 0;
     int scorePlayerTwo = 0;
+    /**
+     * lastPlayerScored = 1 (player one)  = 2 (player two)  = 0 (prevent undo from being processed more than once
+     */
     int lastPlayerScored;
+    /**
+     * lastPlayerScoreValue is the last score points that was just added to either player one or player two
+     */
     int lastPlayerScoreValue;
 
     @Override
@@ -185,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
          */
         TextView resetView = (TextView) findViewById(R.id.player_one_textview);
         resetView.setText(String.valueOf("Player One"));
+        resetView.setTextColor(Color.parseColor("#616161"));
         resetView.setBackgroundColor(Color.parseColor("#FFFFFF"));
         /**
          * Return player_one_score textview background color to default
@@ -196,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
          */
         resetView = (TextView) findViewById(R.id.player_two_textview);
         resetView.setText(String.valueOf("Player Two"));
+        resetView.setTextColor(Color.parseColor("#616161"));
         resetView.setBackgroundColor(Color.parseColor("#FFFFFF"));
         /**
          * Return player_two_score textview background color to default
@@ -205,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays the given score for Team A.
+     * Displays the given score for Player One.
      */
     public void displayForPlayerOne(int score) {
         TextView scoreView = (TextView) findViewById(R.id.player_one_score);
@@ -213,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays the given score for Team B.
+     * Displays the given score for Player Two.
      */
     public void displayForPlayerTwo(int score) {
         TextView scoreView = (TextView) findViewById(R.id.player_two_score);
@@ -245,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
     public void displayPlayerOneSkunked() {
         TextView skunkedView = (TextView) findViewById(R.id.player_one_textview);
         skunkedView.setText(String.valueOf("Player One Skunked!"));
+        skunkedView.setTextColor(Color.parseColor("#FFFFFF"));
         skunkedView.setBackgroundColor(Color.parseColor("#FF0000"));
         skunkedView = (TextView) findViewById(R.id.player_one_score);
         skunkedView.setBackgroundColor(Color.parseColor("#FF0000"));
@@ -261,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
     public void displayPlayerTwoSkunked() {
         TextView skunkedView = (TextView) findViewById(R.id.player_two_textview);
         skunkedView.setText(String.valueOf("Player Two Skunked!"));
+        skunkedView.setTextColor(Color.parseColor("#FFFFFF"));
         skunkedView.setBackgroundColor(Color.parseColor("#FF0000"));
         skunkedView = (TextView) findViewById(R.id.player_two_score);
         skunkedView.setBackgroundColor(Color.parseColor("#FF0000"));
